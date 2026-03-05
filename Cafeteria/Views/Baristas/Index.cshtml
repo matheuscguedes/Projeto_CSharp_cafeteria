@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Cafeteria.Models.Barista>
+
+@{
+    ViewData["Title"] = "Baristas";
+}
+
+<h2>Baristas</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Novo Barista</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th style="width: 220px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
